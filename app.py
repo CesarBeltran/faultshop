@@ -374,8 +374,8 @@ def api_register():
             (username, password, email, role))
         db.commit()
         return jsonify({"message": "User created", "username": username, "role": role}), 201
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
+    except Exception:
+        return jsonify({"error": "Username already taken"}), 400
 
 @app.route("/api/users")
 def api_users():
