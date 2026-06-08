@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - Search{% endblock %}
+{% block content %}
+<div class="search-page">
+  <!-- VULN: Reflected XSS via |safe filter -->
+  <h2>Results for: <span class="search-term">{{ query | safe }}</span></h2>
+  {% if products %}
+  <div class="products-grid">
+    {% for p in products %}
+    <a href="/product/{{ p.id }}" class="product-card">
+      <div class="product-img">{{ p.name[0] }}</div>
+      <div class="product-body">
+        <h3>{{ p.name }}</h3>
+        <span class="price">${{ "%.2f"|format(p.price) }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="no-results">No results for "{{ query | safe }}"</p>
+  {% endif %}
+</div>
+{% endblock %}

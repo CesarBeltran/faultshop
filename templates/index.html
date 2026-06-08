@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - Home{% endblock %}
+{% block content %}
+<div class="hero">
+  <div>
+    <h1>Everything for your setup<br><span>gamer &amp; pro</span></h1>
+    <p>Laptops, peripherals and accessories with 24h shipping</p>
+    <a href="/register" class="btn btn-primary">Create account</a>
+  </div>
+</div>
+<div class="section">
+  <h2 class="section-title">Featured products</h2>
+  <div class="products-grid">
+    {% for p in products %}
+    <a href="/product/{{ p.id }}" class="product-card">
+      <div class="product-img">{{ p.name[0] }}</div>
+      <div class="product-body">
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.description[:55] }}...</p>
+        <span class="price">${{ "%.2f"|format(p.price) }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - Sign up{% endblock %}
+{% block content %}
+<div class="page-center">
+  <div class="card">
+    <h2>Create account</h2>
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+    <form method="POST">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="choose a username" required>
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@example.com">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="••••••••" required>
+      <button type="submit" class="btn btn-primary full-width" style="margin-top:1.1rem">Sign up</button>
+    </form>
+    <p class="card-footer">Already have an account? <a href="/login">Sign in</a></p>
+  </div>
+</div>
+{% endblock %}

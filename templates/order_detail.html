@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - Order #{{ order.id }}{% endblock %}
+{% block content %}
+<div class="page-center">
+  <div class="card wide">
+    <h2>Order #{{ order.id }}</h2>
+    <div class="detail-grid">
+      <div class="detail-row"><span>Customer</span><strong>{{ order.username }}</strong></div>
+      <div class="detail-row"><span>Email</span><strong>{{ order.email }}</strong></div>
+      <div class="detail-row"><span>Card number</span><strong class="sensitive">{{ order.card_number }}</strong></div>
+      <div class="detail-row"><span>Expiry</span><strong class="sensitive">{{ order.expiry }}</strong></div>
+      <div class="detail-row"><span>CVV</span><strong class="sensitive">{{ order.cvv }}</strong></div>
+      <div class="detail-row"><span>Total</span><strong>${{ "%.2f"|format(order.total) }}</strong></div>
+      <div class="detail-row"><span>Status</span><strong>{{ order.status }}</strong></div>
+      <div class="detail-row"><span>Date</span><strong>{{ order.created_at }}</strong></div>
+    </div>
+    <a href="/dashboard" class="btn btn-outline" style="margin-top:1.5rem;display:inline-block">Back</a>
+  </div>
+</div>
+{% endblock %}

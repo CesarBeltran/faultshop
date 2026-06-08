@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - Admin{% endblock %}
+{% block content %}
+<div class="dashboard">
+  <div class="page-header">
+    <h2>Admin panel</h2>
+    <div class="btn-group">
+      <a href="/admin/tools" class="btn btn-outline">Tools</a>
+    </div>
+  </div>
+
+  <h3 style="font-family:system-ui;font-size:1rem;font-weight:600;margin:0 0 .9rem">Users</h3>
+  <div class="table-wrap" style="margin-bottom:2rem">
+    <table>
+      <thead><tr><th>ID</th><th>Username</th><th>Email</th><th>Role</th></tr></thead>
+      <tbody>
+        {% for u in users %}
+        <tr>
+          <td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.email }}</td>
+          <td><span class="badge badge-{{ u.role }}">{{ u.role }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:system-ui;font-size:1rem;font-weight:600;margin:0 0 .9rem">Orders</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>User</th><th>Card</th><th>Total</th><th>Status</th></tr></thead>
+      <tbody>
+        {% for o in orders %}
+        <tr>
+          <td>{{ o.id }}</td><td>{{ o.username }}</td>
+          <td>**** **** **** {{ o.card_number[-4:] }}</td>
+          <td>${{ "%.2f"|format(o.total) }}</td>
+          <td><span class="badge badge-{{ o.status.lower() }}">{{ o.status }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

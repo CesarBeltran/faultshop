@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - My Invoices{% endblock %}
+{% block content %}
+<div class="dashboard">
+  <div class="page-header"><h2>My invoices</h2></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>File</th><th>Download</th></tr></thead>
+      <tbody>
+        {% for f in invoices %}
+        <tr>
+          <td>{{ f }}</td>
+          <td><a href="/download?file={{ f }}" class="row-link">Download</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

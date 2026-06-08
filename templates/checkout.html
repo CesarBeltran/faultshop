@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - Checkout{% endblock %}
+{% block content %}
+<div class="page-center">
+  <div class="card wide">
+    <h2>Payment details</h2>
+    <form method="POST">
+      <label>Card number</label>
+      <input type="text" name="card" placeholder="1234 5678 9012 3456" maxlength="16" required>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div><label>Expiry</label><input type="text" name="expiry" placeholder="MM/YY" required></div>
+        <div><label>CVV</label><input type="text" name="cvv" placeholder="123" maxlength="4" required></div>
+      </div>
+      <label>Total</label>
+      <input type="text" name="total" value="99.99" readonly>
+      <button type="submit" class="btn btn-primary full-width" style="margin-top:1.1rem">Confirm payment</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

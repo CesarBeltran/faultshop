@@ -1,0 +1,16 @@
+FAULTSHOP - ELECTRONIC INVOICE
+================================
+Number:    INV-2024-002
+Date:      2024-03-20
+Customer:  Ana Rodriguez
+Email:     ana@email.com
+
+DETAILS
+-------
+Mechanical Keyboard  x1     $89.99
+27" Monitor          x1    $399.99
+                          ---------
+TOTAL                       $489.98
+
+Status: PAID
+Thank you for shopping at FaultShop.

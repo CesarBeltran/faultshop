@@ -1,0 +1,15 @@
+FAULTSHOP - ELECTRONIC INVOICE
+================================
+Number:    INV-2024-001
+Date:      2024-03-15
+Customer:  Carlos Lopez
+Email:     carlos@email.com
+
+DETAILS
+-------
+Wireless Mouse       x1     $29.99
+                          ---------
+TOTAL                        $29.99
+
+Status: PAID
+Thank you for shopping at FaultShop.

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - Setup{% endblock %}
+{% block content %}
+<div class="page-center">
+  <div class="card" style="max-width:480px;width:100%">
+    <h2 style="margin-bottom:.3rem">FaultShop Lab</h2>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:1.5rem">
+      Ethical hacking practice environment. Before you start, check the lab status.
+    </p>
+
+    {% if msg == "ok" %}
+    <div class="alert alert-success" style="margin-bottom:1.2rem">
+      Lab reset successfully. Initial data restored.
+    </div>
+    {% elif msg %}
+    <div class="alert alert-error" style="margin-bottom:1.2rem">
+      Reset error: {{ msg }}
+    </div>
+    {% endif %}
+
+    <div style="background:#f7f8fa;border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1.5rem">
+      <p style="font-size:.85rem;font-weight:600;margin-bottom:.6rem">Current status:</p>
+      <p style="font-size:.84rem;color:var(--muted)">Users in DB: <strong>{{ users_count }}</strong></p>
+      <p style="font-size:.84rem;color:var(--muted)">Orders in DB: <strong>{{ orders_count }}</strong></p>
+    </div>
+
+    <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:1rem;margin-bottom:1.5rem">
+      <p style="font-size:.83rem;color:#7c6200">
+        <strong>Warning:</strong> Resetting the lab will delete all current data and restore
+        the original users and orders. This action cannot be undone.
+      </p>
+    </div>
+
+    <form method="POST" onsubmit="return confirm('Are you sure you want to reset the lab? All current data will be lost.')">
+      <input type="hidden" name="action" value="reset">
+      <button type="submit" class="btn btn-primary full-width">Reset lab</button>
+    </form>
+
+    <a href="/login" class="btn btn-outline full-width" style="margin-top:.8rem;display:block;text-align:center">
+      Go to sign in
+    </a>
+  </div>
+</div>
+{% endblock %}

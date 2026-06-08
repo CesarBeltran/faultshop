@@ -1,0 +1,17 @@
+services:
+  faultshop:
+    image: cbeltranh/faultshop:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - MAIL_SERVER=mailhog
+      - MAIL_PORT=1025
+    depends_on:
+      - mailhog
+    restart: unless-stopped
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    restart: unless-stopped

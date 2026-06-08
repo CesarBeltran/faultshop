@@ -1,0 +1,11 @@
+# FaultShop internal server configuration
+# DO NOT SHARE
+
+DB_PATH=db/shop.db
+SECRET_KEY=supersecret123
+ADMIN_USER=admin
+ADMIN_PASS=admin123
+DB_BACKUP_PATH=/var/backups/faultshop.db
+INTERNAL_API_KEY=fs_internal_4x9k2m8n
+SMTP_USER=noreply@faultshop.com
+SMTP_PASS=smtp_p4ss_2024

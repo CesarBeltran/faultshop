@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}FaultShop - Tools{% endblock %}
+{% block content %}
+<div class="dashboard">
+  <div class="page-header">
+    <h2>System tools</h2>
+    <a href="/admin" class="btn btn-outline">Back to admin</a>
+  </div>
+  <div class="card wide" style="max-width:100%;margin-bottom:2rem">
+    <h3 style="font-size:1rem;font-weight:600;margin-bottom:1rem">Run server connectivity ping</h3>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:1rem">
+      Enter the IP or domain of a server to check if it is online.
+    </p>
+    <!-- VULN: Command Injection - input is passed directly to the shell -->
+    <form method="POST">
+      <label>Host or IP</label>
+      <input type="text" name="host" placeholder="192.168.1.1 or google.com" required>
+      <button type="submit" class="btn btn-primary" style="margin-top:.9rem">Run ping</button>
+    </form>
+    {% if output %}
+    <div style="margin-top:1.5rem">
+      <label style="display:block;font-size:.82rem;color:var(--muted);font-weight:500;margin-bottom:.4rem">Output:</label>
+      <pre style="background:#1c1f2e;color:#e2e8f0;padding:1rem;border-radius:8px;font-size:.82rem;overflow-x:auto;white-space:pre-wrap">{{ output }}</pre>
+    </div>
+    {% endif %}
+  </div>
+  <div class="card wide" style="max-width:100%">
+    <h3 style="font-size:1rem;font-weight:600;margin-bottom:1rem">Import product image by URL</h3>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:1rem">
+      Feature under development. GUI coming soon.
+    </p>
+    <!-- TODO: finish GUI for /api/products/import -->
+    <!-- endpoint accepts POST JSON with field "url" - domain whitelist validation pending -->
+    <div style="background:#f7f8fa;border:1px solid var(--border);border-radius:8px;padding:1rem">
+      <p style="font-size:.85rem;color:var(--muted);">This feature will be available in the next release.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
