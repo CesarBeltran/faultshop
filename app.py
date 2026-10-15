@@ -66,7 +66,10 @@ def index():
 @app.route("/search")
 def search():
     q = request.args.get("q", "")
+    import re
+    q = re.sub(r"(?i)</?script[^>]*>", "", q)
     db = get_db()
+    
     products = db.execute("SELECT * FROM products WHERE name LIKE ?", (f"%{q}%",)).fetchall()
     # VULN A05:2025 - Reflected XSS via |safe filter in template
     return render_template("search.html", products=products, query=q, user=session.get("user"))
@@ -96,7 +99,13 @@ def login():
         password = request.form.get("password", "")
         db = get_db()
         # VULN A05:2025 - SQL Injection: raw string interpolation in query
+        from urllib.parse import unquote
+        if "'" in username or "'" in password:
+            return render_template("login.html", error="Invalid entry detected.", user=None)
+        username = unquote(username)
+        password = unquote(password)
         query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
+        
         user = db.execute(query).fetchone()
         if user:
             session["user"] = dict(user)
@@ -319,14 +328,21 @@ def admin_tools():
     output = None
     if request.method == "POST":
         host = request.form.get("host", "")
-        # VULN A05:2025 - Command Injection: unsanitized input passed directly to shell
-        try:
-            result = subprocess.run(
-                f"ping -c 2 {host}",
-                shell=True, capture_output=True, text=True, timeout=10)
-            output = result.stdout + result.stderr
-        except subprocess.TimeoutExpired:
-            output = "Timeout: host is not responding"
+        # VULN A05:2025 - Command Injection 
+
+        blocked = [";", "&", "|", " "]
+        if any(ch in host for ch in blocked):
+            output = "Entrada bloqueada: se detectaron caracteres no permitidos."
+        else:
+            try:
+                result = subprocess.run(
+                    f"ping -c 2 {host}",
+                    shell=True, capture_output=True, text=True, timeout=10)
+                output = result.stdout + result.stderr
+            except subprocess.TimeoutExpired:
+                output = "Timeout: host is not responding"    
+            
+            
     return render_template("admin_tools.html", output=output, user=user)
 
 # ─── REST API ──────────────────────────────────────────────
