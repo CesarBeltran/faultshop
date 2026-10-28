@@ -25,6 +25,8 @@ main { flex: 1; }
   display: flex; align-items: center; gap: 1.5rem; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
 .logo { font-weight: 700; font-size: 1.3rem; color: var(--text); }
 .logo span { color: var(--accent); }
+.logo { display: inline-flex; align-items: center; }
+.logo-icon { width: 30px; height: 30px; margin-right: .5rem; }
 .search-bar { display: flex; flex: 1; max-width: 360px; }
 .search-bar input { flex: 1; border: 1px solid var(--border); border-right: none;
   border-radius: 8px 0 0 8px; padding: .5rem 1rem; font-size: .88rem; color: var(--text);
