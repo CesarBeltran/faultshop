@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}FaultShop{% endblock %}</title>
   <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
 </head>
 <body>
   <nav class="navbar">
-    <a href="/" class="logo">Fault<span>Shop</span></a>
+    <a href="/" class="logo"><img src="/static/favicon.svg" alt="" class="logo-icon">Fault<span>Shop</span></a>
     <form action="/search" method="GET" class="search-bar">
       <input type="text" name="q" placeholder="Search products...">
       <button type="submit">Search</button>
