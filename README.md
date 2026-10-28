@@ -1,8 +1,14 @@
-# FaultShop
-[![Docker Pulls](https://img.shields.io/docker/pulls/cbeltranh/faultshop)](https://hub.docker.com/r/cbeltranh/faultshop)
-[![Docker Image Size](https://img.shields.io/docker/image-size/cbeltranh/faultshop/latest)](https://hub.docker.com/r/cbeltranh/faultshop)
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
-[![GitHub last commit](https://img.shields.io/github/last-commit/CesarBeltran/faultshop)](https://github.com/CesarBeltran/faultshop)
+<p align="center"><img src="faultshop-logo.svg" alt="FaultShop logo" width="120"></p>
+
+<h1 align="center">FaultShop</h1>
+
+<p align="center">
+  <a href="https://hub.docker.com/r/cbeltranh/faultshop"><img src="https://img.shields.io/docker/pulls/cbeltranh/faultshop" alt="Docker Pulls"></a>
+  <a href="https://hub.docker.com/r/cbeltranh/faultshop"><img src="https://img.shields.io/docker/image-size/cbeltranh/faultshop/latest" alt="Docker Image Size"></a>
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg" alt="License: CC BY-NC 4.0"></a>
+  <a href="https://github.com/CesarBeltran/faultshop"><img src="https://img.shields.io/github/last-commit/CesarBeltran/faultshop" alt="GitHub last commit"></a>
+</p>
+
 
 **Intentionally vulnerable environment for ethical web hacking practice**
 
