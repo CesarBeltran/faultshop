@@ -149,10 +149,9 @@ FaultShop is a practice environment designed exclusively for educational purpose
 ## Author
 
 **Cesar R. Beltrán-Hernández**
-GitHub: [@CesarBeltran](https://github.com/CesarBeltran)
-PersonalSite: [[@CesarBeltran](https://github.com/CesarBeltran)](https://cesarbeltran.github.io/)
-Linkedin: [cesarbeltranh](https://www.linkedin.com/in/cesarbeltranh/)
----
+- Personal site: [cesarbeltran.github.io](https://cesarbeltran.github.io/)
+- GitHub: [@CesarBeltran](https://github.com/CesarBeltran)
+- LinkedIn: [cesarbeltranh](https://www.linkedin.com/in/cesarbeltranh/)
 
 ## License
 
