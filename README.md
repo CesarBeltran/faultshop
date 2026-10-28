@@ -132,6 +132,7 @@ docker compose down
 
 ## Recommended tools
 
+- Zed Attack Proxy (ZAP)
 - Burp Suite
 - sqlmap
 - ffuf
