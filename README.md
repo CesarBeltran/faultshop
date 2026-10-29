@@ -3,6 +3,7 @@
 <h1 align="center">FaultShop</h1>
 
 <p align="center">
+    <a href="https://vwad.owasp.org/app/faultshop/"><img src="https://img.shields.io/badge/OWASP-VWAD-000000?logo=owasp&logoColor=white" alt="Listed in OWASP VWAD"></a>
   <a href="https://hub.docker.com/r/cbeltranh/faultshop"><img src="https://img.shields.io/docker/pulls/cbeltranh/faultshop" alt="Docker Pulls"></a>
   <a href="https://hub.docker.com/r/cbeltranh/faultshop"><img src="https://img.shields.io/docker/image-size/cbeltranh/faultshop/latest" alt="Docker Image Size"></a>
   <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg" alt="License: CC BY-NC 4.0"></a>
